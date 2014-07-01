@@ -1,13 +1,13 @@
 {
     "name": "Arduino Uno",
-    "vid": {
-        "0": "0x2341",
-        "1": "0x2341"
-    },
-    "pid": {
-        "0": "0x0043",
-        "1": "0x0001"
-    },
+    "vid": [
+        "0x2341",
+        "0x2341"
+    ],
+    "pid": [
+        "0x0043",
+        "0x0001"
+    ],
     "testBooleanDos": false,
     "upload": {
         "tool": "avrdude",

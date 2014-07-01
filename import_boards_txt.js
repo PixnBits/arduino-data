@@ -21,7 +21,7 @@ txt.split(/[\n\r]+/).forEach(function(line){
     var root = boards;
     for(var i=0; i<refs.length; i++) {
         var sec = refs[i];
-        if('object' !== typeof root[sec] && (i+1) < refs.length){
+        if(root[sec] && 'object' !== typeof root[sec] && (i+1) < refs.length){
             root[sec] = { _value: root[sec] };
         }
         if(!root[sec]) {
@@ -48,6 +48,7 @@ Object.keys(boards)
         var path = 'boards/'+id+'.json';
         console.log('reading from '+path);
         try{
+            // node practice is to attempt to open and handle "doesn't exist" error
             var existingContents = fs.readFileSync(path, {encoding:'UTF8'});
             existingContents = JSON.parse(existingContents);
             console.log('merging new data with existing');

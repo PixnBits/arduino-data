@@ -11,14 +11,14 @@
         "use_1200bps_touch": true,
         "wait_for_upload_port": true
     },
-    "vid": {
-        "0": "0x2341",
-        "1": "0x2341"
-    },
-    "pid": {
-        "0": "0x0041",
-        "1": "0x8041"
-    },
+    "vid": [
+        "0x2341",
+        "0x2341"
+    ],
+    "pid": [
+        "0x0041",
+        "0x8041"
+    ],
     "bootloader": {
         "tool": "avrdude",
         "low_fuses": "0xff",

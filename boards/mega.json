@@ -1,13 +1,13 @@
 {
     "name": "Arduino Mega or Mega 2560",
-    "vid": {
-        "0": "0x2341",
-        "1": "0x2341"
-    },
-    "pid": {
-        "0": "0x0010",
-        "1": "0x0042"
-    },
+    "vid": [
+        "0x2341",
+        "0x2341"
+    ],
+    "pid": [
+        "0x0010",
+        "0x0042"
+    ],
     "upload": {
         "tool": "avrdude",
         "maximum_data_size": 8192,

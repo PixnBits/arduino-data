@@ -1,13 +1,13 @@
 {
     "name": "Arduino Mega ADK",
-    "vid": {
-        "0": "0x2341",
-        "1": "0x2341"
-    },
-    "pid": {
-        "0": "0x003f",
-        "1": "0x0044"
-    },
+    "vid": [
+        "0x2341",
+        "0x2341"
+    ],
+    "pid": [
+        "0x003f",
+        "0x0044"
+    ],
     "upload": {
         "tool": "avrdude",
         "protocol": "wiring",
