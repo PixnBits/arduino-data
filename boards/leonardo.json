@@ -1,47 +1,63 @@
 {
-    "id": "leonardo",
     "name": "Arduino Leonardo",
+    "vid": {
+        "0": "0x2341",
+        "1": "0x2341"
+    },
+    "pid": {
+        "0": "0x0036",
+        "1": "0x8036"
+    },
     "upload": {
+        "tool": "avrdude",
         "protocol": "avr109",
-        "maximum_size": "28672",
-        "speed": "57600",
-        "disable_flushing": "true"
+        "maximum_size": 28672,
+        "maximum_data_size": 2560,
+        "speed": 57600,
+        "disable_flushing": true,
+        "use_1200bps_touch": true,
+        "wait_for_upload_port": true
     },
     "bootloader": {
+        "tool": "avrdude",
         "low_fuses": "0xff",
         "high_fuses": "0xd8",
         "extended_fuses": "0xcb",
-        "path": "caterina",
-        "file": "Caterina-Leonardo.hex",
+        "file": "caterina/Caterina-Leonardo.hex",
         "unlock_bits": "0x3F",
-        "lock_bits": "0x2F"
+        "lock_bits": "0x2F",
+        "path": "caterina"
     },
     "build": {
         "mcu": "atmega32u4",
         "f_cpu": "16000000L",
         "vid": "0x2341",
         "pid": "0x8036",
+        "usb_product": "\"Arduino Leonardo\"",
+        "board": "AVR_LEONARDO",
         "core": "arduino",
-        "variant": "leonardo"
+        "variant": "leonardo",
+        "extra_flags": "{build.usb_flags}"
     },
+    "id": "leonardo",
     "info": {
         "power": {
-            "operating":5,
-            "inputmin":7,
-            "inputmax":12
+            "operating": 5,
+            "inputmin": 7,
+            "inputmax": 12
         },
         "memory": {
-            "flash":32,
-            "sram":2.5,
-            "eeprom":1
+            "flash": 32,
+            "sram": 2.5,
+            "eeprom": 1
         },
         "clockspeed": 16,
-        "io":{
-            "digital":20,
-            "pwm":7,
-            "analogin":12
+        "io": {
+            "digital": 20,
+            "pwm": 7,
+            "analogin": 12
         }
     },
     "homepage": "http://arduino.cc/en/Main/arduinoBoardLeonardo",
-    "vendor":"Arduino CC"
+    "vendor": "Arduino CC"
 }

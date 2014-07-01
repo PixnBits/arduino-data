@@ -1,24 +1,63 @@
 {
-    "name": "Arduino Diecimila or Duemilanove w/ ATmega168",
+    "name": "Arduino Duemilanove or Diecimila",
     "upload": {
+        "tool": "avrdude",
         "protocol": "arduino",
-        "maximum_size": "14336",
-        "speed": "19200"
+        "maximum_size": 14336,
+        "speed": 19200
     },
     "bootloader": {
-        "low_fuses": "0xff",
+        "tool": "avrdude",
+        "low_fuses": "0xFF",
+        "unlock_bits": "0x3F",
+        "lock_bits": "0x0F",
         "high_fuses": "0xdd",
         "extended_fuses": "0x00",
         "path": "atmega",
-        "file": "ATmegaBOOT_168_diecimila.hex",
-        "unlock_bits": "0x3F",
-        "lock_bits": "0x0F"
+        "file": "ATmegaBOOT_168_diecimila.hex"
     },
     "build": {
-        "mcu": "atmega168",
         "f_cpu": "16000000L",
+        "board": "AVR_DUEMILANOVE",
         "core": "arduino",
-        "variant": "standard"
+        "variant": "standard",
+        "mcu": "atmega168"
+    },
+    "menu": {
+        "cpu": {
+            "atmega328": {
+                "_value": "ATmega328",
+                "upload": {
+                    "maximum_size": 30720,
+                    "maximum_data_size": 2048,
+                    "speed": 57600
+                },
+                "bootloader": {
+                    "high_fuses": "0xDA",
+                    "extended_fuses": "0x05",
+                    "file": "atmega/ATmegaBOOT_168_atmega328.hex"
+                },
+                "build": {
+                    "mcu": "atmega328p"
+                }
+            },
+            "atmega168": {
+                "_value": "ATmega168",
+                "upload": {
+                    "maximum_size": 14336,
+                    "maximum_data_size": 1024,
+                    "speed": 19200
+                },
+                "bootloader": {
+                    "high_fuses": "0xdd",
+                    "extended_fuses": "0x00",
+                    "file": "atmega/ATmegaBOOT_168_diecimila.hex"
+                },
+                "build": {
+                    "mcu": "atmega168"
+                }
+            }
+        }
     },
     "id": "diecimila"
 }

@@ -1,24 +1,103 @@
 {
-    "name": "Arduino Pro or Pro Mini (3.3V, 8 MHz) w/ ATmega168",
+    "name": "Arduino Pro or Pro Mini",
     "upload": {
+        "tool": "avrdude",
         "protocol": "arduino",
-        "maximum_size": "14336",
-        "speed": "19200"
+        "maximum_size": 14336,
+        "speed": 19200
     },
     "bootloader": {
+        "tool": "avrdude",
+        "unlock_bits": "0x3F",
+        "lock_bits": "0x0F",
         "low_fuses": "0xc6",
         "high_fuses": "0xdd",
         "extended_fuses": "0x00",
         "path": "atmega",
-        "file": "ATmegaBOOT_168_pro_8MHz.hex",
-        "unlock_bits": "0x3F",
-        "lock_bits": "0x0F"
+        "file": "ATmegaBOOT_168_pro_8MHz.hex"
     },
     "build": {
-        "mcu": "atmega168",
-        "f_cpu": "8000000L",
+        "board": "AVR_PRO",
         "core": "arduino",
-        "variant": "standard"
+        "variant": "standard",
+        "mcu": "atmega168",
+        "f_cpu": "8000000L"
+    },
+    "menu": {
+        "cpu": {
+            "16MHzatmega328": {
+                "_value": "ATmega328 (5V, 16 MHz)",
+                "upload": {
+                    "maximum_size": 30720,
+                    "maximum_data_size": 2048,
+                    "speed": 57600
+                },
+                "bootloader": {
+                    "low_fuses": "0xFF",
+                    "high_fuses": "0xDA",
+                    "extended_fuses": "0x05",
+                    "file": "atmega/ATmegaBOOT_168_atmega328.hex"
+                },
+                "build": {
+                    "mcu": "atmega328p",
+                    "f_cpu": "16000000L"
+                }
+            },
+            "8MHzatmega328": {
+                "_value": "ATmega328 (3.3V, 8 MHz)",
+                "upload": {
+                    "maximum_size": 30720,
+                    "maximum_data_size": 2048,
+                    "speed": 57600
+                },
+                "bootloader": {
+                    "low_fuses": "0xFF",
+                    "high_fuses": "0xDA",
+                    "extended_fuses": "0x05",
+                    "file": "atmega/ATmegaBOOT_168_atmega328_pro_8MHz.hex"
+                },
+                "build": {
+                    "mcu": "atmega328p",
+                    "f_cpu": "8000000L"
+                }
+            },
+            "16MHzatmega168": {
+                "_value": "ATmega168 (5V, 16 MHz)",
+                "upload": {
+                    "maximum_size": 14336,
+                    "maximum_data_size": 1024,
+                    "speed": 19200
+                },
+                "bootloader": {
+                    "low_fuses": "0xff",
+                    "high_fuses": "0xdd",
+                    "extended_fuses": "0x00",
+                    "file": "atmega/ATmegaBOOT_168_diecimila.hex"
+                },
+                "build": {
+                    "mcu": "atmega168",
+                    "f_cpu": "16000000L"
+                }
+            },
+            "8MHzatmega168": {
+                "_value": "ATmega168 (3.3V, 8 MHz)",
+                "upload": {
+                    "maximum_size": 14336,
+                    "maximum_data_size": 1024,
+                    "speed": 19200
+                },
+                "bootloader": {
+                    "low_fuses": "0xc6",
+                    "high_fuses": "0xdd",
+                    "extended_fuses": "0x00",
+                    "file": "atmega/ATmegaBOOT_168_pro_8MHz.hex"
+                },
+                "build": {
+                    "mcu": "atmega168",
+                    "f_cpu": "8000000L"
+                }
+            }
+        }
     },
     "id": "pro"
 }

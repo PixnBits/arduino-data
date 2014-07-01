@@ -1,24 +1,63 @@
 {
-    "name": "Arduino Mini w/ ATmega168",
+    "name": "Arduino Mini",
     "upload": {
+        "tool": "avrdude",
         "protocol": "arduino",
-        "maximum_size": "14336",
-        "speed": "19200"
+        "maximum_size": 14336,
+        "speed": 19200
     },
     "bootloader": {
+        "tool": "avrdude",
         "low_fuses": "0xff",
+        "unlock_bits": "0x3F",
+        "lock_bits": "0x0F",
         "high_fuses": "0xdd",
         "extended_fuses": "0x00",
         "path": "atmega",
-        "file": "ATmegaBOOT_168_ng.hex",
-        "unlock_bits": "0x3F",
-        "lock_bits": "0x0F"
+        "file": "ATmegaBOOT_168_ng.hex"
     },
     "build": {
-        "mcu": "atmega168",
         "f_cpu": "16000000L",
+        "board": "AVR_MINI",
         "core": "arduino",
-        "variant": "eightanaloginputs"
+        "variant": "eightanaloginputs",
+        "mcu": "atmega168"
+    },
+    "menu": {
+        "cpu": {
+            "atmega328": {
+                "_value": "ATmega328",
+                "upload": {
+                    "maximum_size": 28672,
+                    "maximum_data_size": 2048,
+                    "speed": 115200
+                },
+                "bootloader": {
+                    "high_fuses": "0xd8",
+                    "extended_fuses": "0x05",
+                    "file": "optiboot/optiboot_atmega328-Mini.hex"
+                },
+                "build": {
+                    "mcu": "atmega328p"
+                }
+            },
+            "atmega168": {
+                "_value": "ATmega168",
+                "upload": {
+                    "maximum_size": 14336,
+                    "maximum_data_size": 1024,
+                    "speed": 19200
+                },
+                "bootloader": {
+                    "high_fuses": "0xdd",
+                    "extended_fuses": "0x00",
+                    "file": "atmega/ATmegaBOOT_168_ng.hex"
+                },
+                "build": {
+                    "mcu": "atmega168"
+                }
+            }
+        }
     },
     "id": "mini"
 }

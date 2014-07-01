@@ -1,25 +1,62 @@
 {
-    "name": "Arduino BT w/ ATmega168",
+    "name": "Arduino BT",
     "upload": {
+        "tool": "avrdude",
         "protocol": "arduino",
-        "maximum_size": "14336",
-        "speed": "19200",
-        "disable_flushing": "true"
+        "speed": 19200,
+        "disable_flushing": true,
+        "maximum_size": 14336
     },
     "bootloader": {
+        "tool": "avrdude",
         "low_fuses": "0xff",
+        "unlock_bits": "0x3F",
+        "lock_bits": "0x0F",
         "high_fuses": "0xdd",
         "extended_fuses": "0x00",
         "path": "bt",
-        "file": "ATmegaBOOT_168.hex",
-        "unlock_bits": "0x3F",
-        "lock_bits": "0x0F"
+        "file": "ATmegaBOOT_168.hex"
     },
     "build": {
-        "mcu": "atmega168",
         "f_cpu": "16000000L",
+        "board": "AVR_BT",
         "core": "arduino",
-        "variant": "eightanaloginputs"
+        "variant": "eightanaloginputs",
+        "mcu": "atmega168"
+    },
+    "menu": {
+        "cpu": {
+            "atmega328": {
+                "_value": "ATmega328",
+                "upload": {
+                    "maximum_size": 28672,
+                    "maximum_data_size": 2048
+                },
+                "bootloader": {
+                    "high_fuses": "0xd8",
+                    "extended_fuses": "0x05",
+                    "file": "bt/ATmegaBOOT_168_atmega328_bt.hex"
+                },
+                "build": {
+                    "mcu": "atmega328p"
+                }
+            },
+            "atmega168": {
+                "_value": "ATmega168",
+                "upload": {
+                    "maximum_size": 14336,
+                    "maximum_data_size": 1024
+                },
+                "bootloader": {
+                    "high_fuses": "0xdd",
+                    "extended_fuses": "0x00",
+                    "file": "bt/ATmegaBOOT_168.hex"
+                },
+                "build": {
+                    "mcu": "atmega168"
+                }
+            }
+        }
     },
     "id": "bt"
 }

@@ -1,27 +1,35 @@
 {
     "name": "Arduino Robot Control",
     "upload": {
+        "tool": "avrdude",
         "protocol": "avr109",
-        "maximum_size": "28672",
-        "speed": "57600",
-        "disable_flushing": "true"
+        "maximum_size": 28672,
+        "maximum_data_size": 2560,
+        "speed": 57600,
+        "disable_flushing": true,
+        "use_1200bps_touch": true,
+        "wait_for_upload_port": true
     },
     "bootloader": {
+        "tool": "avrdude",
         "low_fuses": "0xff",
         "high_fuses": "0xd8",
         "extended_fuses": "0xcb",
-        "path": "caterina-Arduino_Robot",
-        "file": "Caterina-Robot-Control.hex",
+        "file": "caterina-Arduino_Robot/Caterina-Robot-Control.hex",
         "unlock_bits": "0x3F",
-        "lock_bits": "0x2F"
+        "lock_bits": "0x2F",
+        "path": "caterina-Arduino_Robot"
     },
     "build": {
         "mcu": "atmega32u4",
         "f_cpu": "16000000L",
         "vid": "0x2341",
         "pid": "0x8038",
-        "core": "robot",
-        "variant": "robot_control"
+        "usb_product": "\"Robot Control\"",
+        "board": "AVR_ROBOT_CONTROL",
+        "core": "arduino",
+        "variant": "robot_control",
+        "extra_flags": "{build.usb_flags}"
     },
     "id": "robotControl"
 }

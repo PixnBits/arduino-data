@@ -1,24 +1,74 @@
 {
-    "name": "Arduino Mega (ATmega1280)",
+    "name": "Arduino Mega or Mega 2560",
+    "vid": {
+        "0": "0x2341",
+        "1": "0x2341"
+    },
+    "pid": {
+        "0": "0x0010",
+        "1": "0x0042"
+    },
     "upload": {
+        "tool": "avrdude",
+        "maximum_data_size": 8192,
         "protocol": "arduino",
-        "maximum_size": "126976",
-        "speed": "57600"
+        "maximum_size": 126976,
+        "speed": 57600
     },
     "bootloader": {
+        "tool": "avrdude",
         "low_fuses": "0xFF",
+        "unlock_bits": "0x3F",
+        "lock_bits": "0x0F",
         "high_fuses": "0xDA",
         "extended_fuses": "0xF5",
         "path": "atmega",
-        "file": "ATmegaBOOT_168_atmega1280.hex",
-        "unlock_bits": "0x3F",
-        "lock_bits": "0x0F"
+        "file": "ATmegaBOOT_168_atmega1280.hex"
     },
     "build": {
-        "mcu": "atmega1280",
         "f_cpu": "16000000L",
         "core": "arduino",
-        "variant": "mega"
+        "variant": "mega",
+        "board": "AVR_MEGA2560",
+        "mcu": "atmega1280"
+    },
+    "menu": {
+        "cpu": {
+            "atmega2560": {
+                "_value": "ATmega2560 (Mega 2560)",
+                "upload": {
+                    "protocol": "wiring",
+                    "maximum_size": 258048,
+                    "speed": 115200
+                },
+                "bootloader": {
+                    "high_fuses": "0xD8",
+                    "extended_fuses": "0xFD",
+                    "file": "stk500v2/stk500boot_v2_mega2560.hex"
+                },
+                "build": {
+                    "mcu": "atmega2560",
+                    "board": "AVR_MEGA2560"
+                }
+            },
+            "atmega1280": {
+                "_value": "ATmega1280",
+                "upload": {
+                    "protocol": "arduino",
+                    "maximum_size": 126976,
+                    "speed": 57600
+                },
+                "bootloader": {
+                    "high_fuses": "0xDA",
+                    "extended_fuses": "0xF5",
+                    "file": "atmega/ATmegaBOOT_168_atmega1280.hex"
+                },
+                "build": {
+                    "mcu": "atmega1280",
+                    "board": "AVR_MEGA"
+                }
+            }
+        }
     },
     "id": "mega"
 }
